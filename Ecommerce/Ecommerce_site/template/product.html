@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<ul class="list-group my-2 mx-2">
+  <li class="list-group-item"><h2>{{products.name}}</h2></li>
+  <li class="list-group-item">
+    <div class="row">
+    <div class="card d-block w-50">
+      <a href="#">
+      <img src="{{products.image.url}}" class="d-block w-75" alt="{{products.name}}">
+      </a>
+    </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body d-block w-100">
+        <p class="card-text"><h1>{{products.description}}</h1></p>
+        <p>{{products.fdescription}}</p><br><br>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>select the quantity</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+        </select>
+       <br><br>
+        <strong><h2>₹{{products.price}}</h2></strong>
+        <button type="button" class="btn btn-primary btn-lg mx-2" style="display: inline-block; float: right">Add to Cart</button> <button type="button" class="btn btn-primary btn-lg" style="display: inline-block; float: right">BUY NOW</button>
+      </div>
+    </div>
+  </div>
+    </div>
+  </li>
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+{% endfor %}
+
+  <div class="row row-cols-1 row-cols-md-4 g-4 my-2 mx-2">
+{%for i in products %}
+  <div class="col" id="mv">
+    <div class="card">
+      <a href='/product/{{i.id}}' method='get'><img src="{{i.image.url}}" class="card-img-top" alt="{{i.name}}"></a>
+      <div class="card-body">
+        <h5 class="card-title">{{i.name}}</h5>
+        <strong style="display: inline-block; float: right">₹{{i.price}}</strong>
+    <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock content %}
