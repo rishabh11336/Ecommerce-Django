@@ -26,7 +26,14 @@ def category(request, category):
 
 def search(request):
     q=request.GET['q']
-    data = Product.objects.filter(name=q).order_by('-id')
+    data1 = Product.objects.filter(tag=q).order_by('-id')
+    data2 = Product.objects.filter(name=q).order_by('-id')
+    if data1:
+        data = data1
+    else:
+        data = data2
+    print(data)
+    print(data2)
     return render(request, 'Search.html', {'productss': productss, 'data':data})
 
 
