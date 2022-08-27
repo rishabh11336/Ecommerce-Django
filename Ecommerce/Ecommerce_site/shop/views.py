@@ -32,8 +32,6 @@ def search(request):
         data = data1
     else:
         data = data2
-    print(data)
-    print(data2)
     return render(request, 'Search.html', {'productss': productss, 'data':data})
 
 
